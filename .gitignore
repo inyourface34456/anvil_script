@@ -1,3 +1,4 @@
 anvil_math/target
 anvil_math/Cargo.lock
 pycdc.exe
+__pycache__

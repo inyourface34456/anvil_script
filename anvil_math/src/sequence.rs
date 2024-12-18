@@ -2,21 +2,6 @@ use rand::Rng;
 
 use crate::enchantments::Item;
 
-// import Enchantments
-// import random
-
-// class sequence:
-//     max_levels = 0
-//     num = 0
-
-
-
-
-// def next_sequence():
-//     sequence.num += 1
-//     return sequence(sequence.num, Enchantments.items_breastplate.copy())
-
-
 pub struct Sequence {
     id: usize,
     item_list: Vec<Item>,
@@ -35,6 +20,11 @@ impl Sequence {
             current_index: current_index.unwrap_or(0)
         }
     }
+
+    // def next_sequence():
+    //     sequence.num += 1
+    //     return sequence(sequence.num, Enchantments.items_breastplate.copy())
+   
     
     //     def next_step(self):
     //         num_items = len(self.item_list)
@@ -51,7 +41,7 @@ impl Sequence {
         let mut rng = rand::thread_rng();
         if self.item_list.len() > 1 {
             let sacrfice = self.item_list.remove(rng.gen_range(0..self.item_list.len()-1));
-            let target = self.item_list[rng.gen_range(0..self.item_list.len()-1)];
+            let target = self.item_list[rng.gen_range(0..self.item_list.len()-1)].clone();
             return (false, target, Some(sacrfice));
         }
         self.finish(format!("{:?}", self.item_list[0]));
@@ -78,6 +68,8 @@ impl Sequence {
     //             print('Sequence #', self.id, ' completed: ', report, sep='')
 
     fn finish(&self, report: String) {
-
+        if self.id %100_000 == 0 {
+            println!("{report}");
+        }
     }
 }

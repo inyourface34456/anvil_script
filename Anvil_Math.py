@@ -1,6 +1,6 @@
 import Sequence
 import Enchantments
-import typing
+from typing import Literal, Any
 
 penalty = {0:0, 1:1, 2:3, 3:7, 4:15, 5:31}
 
@@ -26,7 +26,7 @@ def combine(target: type[Enchantments.item], sacrifice: type[Enchantments.item])
     return Enchantments.item(id, recipe, type, enchants, anvil_uses, total_levels, total_armour, total_books, total_lapis)
     
 
-def combine_enchants(target: type[Enchantments.item], sacrifice: type[Enchantments.item]):
+def combine_enchants(target: type[Enchantments.item], sacrifice: type[Enchantments.item]) -> (tuple[Literal['sequence contains incompatible enchantments'], Literal[0]] | tuple[Literal['redundant sequence'], Literal[0]] | tuple[Any, Any | Literal[0]]):
     enchants_list = target.enchants
     cost = 0
 

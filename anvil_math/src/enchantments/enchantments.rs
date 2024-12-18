@@ -1,28 +1,14 @@
-// class item:
-//     def __init__(self, id, recipe, type, enchants, anvil_uses, total_levels, total_armour, total_books, total_lapis):
-//         self.id = id
-//         self.recipe = recipe
-//         self.type = type
-//         self.enchants = enchants
-//         self.anvil_uses = anvil_uses
-//         self.total_levels = total_levels
-//         self.total_armour = total_armour
-//         self.total_books = total_books
-//         self.total_lapis = total_lapis
-
-// item(1, '1', 'Armour', [enchant(blast_protection, 1)], 0, 1, 1, 0, 1)
-
 #[derive(Debug, Clone)]
 pub struct Item {
-    id: usize,
-    recipe: String,
-    item_type: ItemType,
-    enchants: Vec<Enchant>,
-    total_uses: usize,
-    total_levels: usize,
-    total_armor: usize,
-    total_books: usize,
-    total_lapis: usize,
+    pub id: usize,
+    pub recipe: String,
+    pub item_type: ItemType,
+    pub enchants: Vec<Enchant>,
+    pub anvil_uses: usize,
+    pub total_levels: usize,
+    pub total_armor: usize,
+    pub total_books: usize,
+    pub total_lapis: usize,
 }
 
 impl Item {
@@ -30,7 +16,7 @@ impl Item {
                 recipe: String,
                 item_type: ItemType,
                 enchants: Vec<Enchant>,
-                total_uses: usize,
+                anvil_uses: usize,
                 total_levels: usize,
                 total_armor: usize,
                 total_books: usize,
@@ -41,7 +27,7 @@ impl Item {
             recipe,
             item_type,
             enchants,
-            total_uses,
+            anvil_uses,
             total_levels,
             total_armor,
             total_books,
